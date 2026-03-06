@@ -137,10 +137,47 @@ Pour produire la newsletter, effectue les recherches suivantes :
 
 ### Structure de la newsletter
 
-#### 1. 📊 Résumé de la semaine
+#### 1. 📊 Dashboard — Ta chaîne cette semaine
+
+Commence TOUJOURS la newsletter par un tableau de bord synthétique de la chaîne du créateur. Recherche les données disponibles publiquement (via web search) et présente :
+
+**Bloc Stats chaîne** :
+```
+📊 DASHBOARD — [Nom Chaîne] — Semaine du {date}
+
+Abonnés        : ~{nombre} ({évolution} vs semaine dernière)
+Vidéos publiées: {nombre cette semaine}
+Vues estimées  : ~{vues semaine} (total semaine)
+Top vidéo      : "{titre}" — ~{vues} vues
+```
+
+Si les données exactes ne sont pas disponibles, indique "(estimé)" et base-toi sur les tendances observables.
+
+**Matrice de Priorité** — Présente les actions de la semaine dans une matrice 2x2 (impact × urgence) :
+
+```
+                    URGENT                          PAS URGENT
+            ┌─────────────────────────┬─────────────────────────┐
+  IMPACT    │ 🔴 FAIRE MAINTENANT    │ 🟡 PLANIFIER            │
+  FORT      │                         │                         │
+            │ • [action 1]            │ • [action 3]            │
+            │ • [action 2]            │ • [action 4]            │
+            ├─────────────────────────┼─────────────────────────┤
+  IMPACT    │ 🟠 DÉLÉGUER / VITE FAIT│ 🟢 BACKLOG              │
+  FAIBLE    │                         │                         │
+            │ • [action 5]            │ • [action 6]            │
+            │ • [action 6]            │                         │
+            └─────────────────────────┴─────────────────────────┘
+```
+
+Remplis cette matrice avec les **actions concrètes** issues de toute la newsletter (idées de contenu, réponses aux tendances, réactions aux concurrents). Chaque action doit être une phrase courte et actionnable (ex: "Publier un comparatif X vs Y avant que ConcurrentA le fasse", "Tester le format Shorts sur le dernier produit").
+
+C'est le **résumé exécutif** — le créateur doit pouvoir lire uniquement ce bloc et savoir exactement quoi faire cette semaine.
+
+#### 2. 📰 Résumé de la semaine
 3-4 phrases résumant les faits marquants.
 
-#### 2. 🎬 Activité des concurrents et chaînes suivies
+#### 3. 🎬 Activité des concurrents et chaînes suivies
 Pour chaque acteur ayant publié cette semaine :
 - Nom + **segment** (rappeler si c'est un concurrent direct, une veille, un collab, ou un wild card)
 - Titre(s) de la/des vidéo(s)
@@ -150,13 +187,13 @@ Pour chaque acteur ayant publié cette semaine :
 
 Si un acteur n'a rien publié, ne pas le mentionner.
 
-#### 3. 📈 Tendances du marché
+#### 4. 📈 Tendances du marché
 - Nouveaux produits annoncés (sur TOUS les segments — le créateur doit voir les tendances même hors de son segment)
 - Actualités réglementaires
 - Tendances de recherche
 - Salons, événements
 
-#### 4. 💡 Idées de contenu
+#### 5. 💡 Idées de contenu
 Propose 3 à 5 idées de vidéo en t'appuyant sur :
 - Ce que les concurrents couvrent et que le créateur n'a pas encore traité
 - Les tendances du moment
@@ -203,7 +240,7 @@ Pour chaque idée :
 - **Catégorie** : technique pure / divertissement / mix
 - **Priorité** : haute / moyenne / basse
 
-#### 5. 💬 Voix de l'audience — Analyse des commentaires
+#### 6. 💬 Voix de l'audience — Analyse des commentaires
 Parcours les commentaires des vidéos récentes des concurrents et relève :
 - **Questions récurrentes** des viewers
 - **Demandes de sujets** explicites
@@ -212,7 +249,66 @@ Parcours les commentaires des vidéos récentes des concurrents et relève :
 
 3-5 bullets max, en indiquant la source (chaîne + vidéo).
 
-#### 6. 🔍 Découvertes de la semaine
+#### 7. ⚔️ Score de Menace Concurrentielle
+
+Chaque semaine, évalue chaque concurrent direct sur 5 indicateurs et attribue un **score global de menace** sur 100. Ce score permet au créateur de visualiser en un coup d'œil qui monte, qui stagne, et où concentrer son attention.
+
+**Les 5 indicateurs** (chacun noté sur 20) :
+
+| Indicateur | Ce qu'on mesure | Signaux |
+|---|---|---|
+| 📹 **Rythme de publication** | Fréquence et régularité | Nombre de vidéos cette semaine vs moyenne habituelle. +20 si rythme accéléré, 10 si normal, 5 si ralenti |
+| 👁️ **Performance vues** | Traction des dernières vidéos | Vues estimées vs moyenne de la chaîne. Une vidéo virale = score max |
+| 🎯 **Chevauchement de contenu** | Sujets qui empiètent sur le territoire du créateur | Même produit testé, même angle, même segment. Plus le chevauchement est fort, plus la menace est élevée |
+| 🚀 **Signaux de croissance** | Dynamique d'abonnés et d'engagement | Nouveaux abonnés estimés, hausse des commentaires, collaborations avec des marques |
+| 🆕 **Innovation format** | Nouveaux formats ou pivots | Lancement de Shorts, podcast, live, nouveau style de thumbnail, changement de ton |
+
+**Calcul du score** :
+- Additionne les 5 indicateurs → score sur 100
+- Classe les concurrents par score décroissant
+- Attribue un **niveau de menace** :
+  - 🔴 **80-100** : Menace critique — ce concurrent est en train de grignoter ton audience
+  - 🟠 **60-79** : Menace élevée — activité forte, à surveiller de près
+  - 🟡 **40-59** : Menace modérée — activité normale
+  - 🟢 **0-39** : Menace faible — inactif ou en déclin
+
+**Présentation dans la newsletter** :
+
+```
+⚔️ SCORE DE MENACE — Semaine du {date}
+
+Concurrent          | Segment  | Pub | Vues | Chevau. | Croiss. | Innov. | TOTAL | Évol.
+--------------------|----------|-----|------|---------|---------|--------|-------|------
+🔴 ConcurrentA     | Premium  |  18 |   16 |     15  |    14   |   20   |  83   |  ↑+12
+🟠 ConcurrentB     | Budget   |  15 |   12 |     10  |    16   |   15   |  68   |  ↓-5
+🟡 ConcurrentC     | Premium  |  10 |    8 |     12  |     8   |   10   |  48   |  →0
+🟢 ConcurrentD     | Budget   |   5 |    6 |      3  |     4   |    5   |  23   |  ↓-8
+```
+
+La colonne **Évol.** compare au score de la semaine précédente. Stocke les scores dans un fichier `menace-scores.json` au même endroit que `feedback-log.md` pour tracer l'historique :
+
+```json
+{
+  "scores": [
+    {
+      "semaine": "2026-03-02",
+      "concurrents": {
+        "ConcurrentA": {"pub": 18, "vues": 16, "chevauchement": 15, "croissance": 14, "innovation": 20, "total": 83},
+        "ConcurrentB": {"pub": 15, "vues": 12, "chevauchement": 10, "croissance": 16, "innovation": 15, "total": 68}
+      }
+    }
+  ]
+}
+```
+
+**Règles importantes** :
+- Ne score que les **concurrents directs** (même segment). Les chaînes de veille et wild cards ne sont pas scorées.
+- Si aucune donnée n'est disponible pour un indicateur, mets 10/20 (neutre) et note "(estimé)".
+- Commente les variations fortes (±15 points ou plus) : "🔴 ConcurrentA passe de 71 à 83 — il a lancé un format Shorts cette semaine et sa vidéo comparatif a explosé."
+
+Dans le **PDF**, présente ce tableau avec les couleurs du niveau de menace en fond de ligne. Dans le **Markdown**, utilise le format tableau ci-dessus avec les emojis.
+
+#### 8. 🔍 Découvertes de la semaine
 - Nouvelle chaîne ou créateur repéré
 - Vidéo virale ou format innovant
 - Collaboration ou partenariat intéressant
