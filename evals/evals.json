@@ -1,0 +1,41 @@
+{
+  "skill_name": "veille-youtube",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Je veux faire une veille concurrentielle hebdomadaire pour ma chaîne YouTube",
+      "expected_output": "La skill doit lancer la Phase 1 d'onboarding : poser des questions sur la chaîne (nom, abonnés, ancienneté), la niche et le segment de prix, les concurrents connus, l'objectif de la veille, et l'email de livraison. Ne doit PAS commencer directement la newsletter sans ces informations.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Ma chaîne c'est TechReviewFR, 5000 abonnés, je teste des smartphones haut de gamme (Samsung Galaxy S, iPhone Pro). Mes concurrents c'est PhoneBudget qui fait de l'entrée de gamme et TechMaster qui est sur le même segment que moi.",
+      "expected_output": "La skill doit classifier correctement : TechMaster = concurrent direct (même segment haut de gamme), PhoneBudget = veille stratégique (segment différent, entrée de gamme). Ne doit PAS les mettre tous les deux comme 'concurrents directs'. Doit proposer une configuration structurée avec les 4 catégories : concurrent direct, veille stratégique, collaborateur, wild card.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Qu'est-ce que mes concurrents ont publié cette semaine ? Je suis sur la niche fitness/musculation sur YouTube",
+      "expected_output": "La skill doit d'abord demander les informations d'onboarding (nom de chaîne, segment de prix, concurrents spécifiques) avant de pouvoir faire la veille. Ne doit PAS inventer des concurrents ou faire une recherche générique sans connaître le profil du créateur.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Surveiller les concurrents YouTube dans la niche cuisine végane, ma chaîne c'est VeganChefParis, 12k abonnés, segment milieu de gamme. Concurrents : GreenKitchen (même segment), LuxeVegan (haut de gamme), QuickVeganMeals (entrée de gamme). Email : test@example.com, newsletter le lundi.",
+      "expected_output": "La skill doit produire une newsletter complète avec les 6 sections : résumé de la semaine, activité des concurrents (en précisant le segment de chacun), tendances marché, idées de contenu, voix de l'audience, découvertes. Doit classifier GreenKitchen comme concurrent direct, LuxeVegan et QuickVeganMeals comme veille stratégique. Doit générer un fichier markdown et préparer un email.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Donne-moi des idées de vidéos pour ma chaîne YouTube de cuisine haut de gamme, je voudrais aussi couvrir le segment budget",
+      "expected_output": "La skill doit proposer des angles de différenciation pour l'extension cross-segment : crash test premium (tester du budget avec un regard premium), comparatif 'ça vaut le x3 ?', upgrade path, testeur cash. Ne doit PAS proposer des idées génériques sans tenir compte du positionnement premium du créateur.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Je viens de recevoir ma newsletter de veille concurrentielle YouTube, je voudrais donner mon retour",
+      "expected_output": "La skill doit lancer la Phase 4 de feedback : demander le score global /10, la section la plus utile, ce qui manquait, si les idées de contenu ont été utilisées, et les changements de concurrents. Doit stocker le feedback dans feedback-log.md et indiquer que les ajustements seront appliqués à la prochaine newsletter.",
+      "files": []
+    }
+  ]
+}
