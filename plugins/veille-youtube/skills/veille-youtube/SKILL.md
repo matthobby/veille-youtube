@@ -313,6 +313,14 @@ Dans le **PDF**, présente ce tableau avec les couleurs du niveau de menace en f
 - Vidéo virale ou format innovant
 - Collaboration ou partenariat intéressant
 
+#### 9. 🎯 Le chiffre de la semaine
+Termine chaque newsletter par UN chiffre marquant lié à la niche ou au marché du créateur. Ce chiffre doit frapper et donner matière à réflexion ou à contenu. Exemples :
+- "**+340%** : la hausse des recherches Google pour 'fatbike électrique' en mars vs janvier"
+- "**12 minutes** : la durée moyenne des vidéos les plus performantes de ta niche cette semaine"
+- "**3 sur 5** : nombre de tes concurrents directs qui ont publié un Shorts cette semaine (et toi 0)"
+
+Accompagne le chiffre d'une phrase d'analyse et, si pertinent, d'une action suggérée.
+
 ---
 
 ## Livraison
