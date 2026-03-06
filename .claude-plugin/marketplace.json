@@ -1,0 +1,16 @@
+{
+  "name": "veille-youtube-marketplace",
+  "metadata": {
+    "description": "Marketplace de skills pour créateurs YouTube. Veille concurrentielle, analyse de niche, idées de contenu."
+  },
+  "owner": {
+    "name": "MattEpicAdventures"
+  },
+  "plugins": [
+    {
+      "name": "veille-youtube",
+      "source": "./plugins/veille-youtube",
+      "description": "Newsletter hebdomadaire de veille concurrentielle YouTube. Analyse concurrents par segment, detecte tendances, propose idees de contenu differenciees."
+    }
+  ]
+}

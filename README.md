@@ -1,65 +1,41 @@
-# Veille Concurrentielle YouTube
+# Veille YouTube Marketplace
 
-Plugin Claude pour produire une **newsletter hebdomadaire de veille concurrentielle** destinée aux créateurs YouTube.
+Marketplace Claude contenant des skills pour créateurs YouTube.
 
-## Ce que fait ce plugin
+## Plugin : veille-youtube
 
-- **Onboarding intelligent** : identifie ta niche, ton segment de prix, tes concurrents, tes objectifs et tes ambitions de format
+Newsletter hebdomadaire de veille concurrentielle pour créateurs YouTube.
+
+- **Onboarding intelligent** : niche, segment de prix, concurrents, objectifs, ambitions de format
 - **Classification par segment** : concurrents directs, veille stratégique, collaborateurs, wild cards
-- **Newsletter hebdomadaire** : activité concurrents, tendances marché, idées de contenu, voix de l'audience, découvertes
-- **Multi-format** : idées adaptées selon tes ambitions (review, divertissement, challenge, storytelling, documentaire, interview, etc.)
-- **Stratégie cross-segment** : angles de différenciation pour entrer sur un nouveau segment de prix
+- **Newsletter hebdo** : activité concurrents, tendances, idées de contenu, voix de l'audience
+- **Multi-format** : review, divertissement, challenge, storytelling, documentaire, interview
 - **Feedback loop** : s'améliore au fil du temps grâce à tes retours
 
 ## Installation
 
-### Via le marketplace Jean-Claude
+Dans Claude Desktop :
+1. **Paramètres > Personnaliser > Plugins**
+2. Ajouter l'URL : `https://github.com/matthobby/veille-youtube`
+3. Le plugin "veille-youtube" apparaît dans tes skills
 
-1. Dans Claude Desktop, va dans **Paramètres > Plugins > Marketplace**
-2. Cherche "veille-youtube"
-3. Clique sur **Installer**
-
-### Manuel
-
-Clone ce repo dans ton répertoire de plugins Claude :
-
-```bash
-git clone https://github.com/matthobby/veille-youtube.git
-```
-
-## Structure du plugin
+## Structure
 
 ```
-veille-youtube/
 ├── .claude-plugin/
-│   └── plugin.json            # Manifeste du plugin
-├── skills/
+│   └── marketplace.json
+├── plugins/
 │   └── veille-youtube/
-│       ├── SKILL.md           # Instructions complètes de la skill
-│       └── evals/
-│           └── evals.json     # Tests de validation (6 scénarios)
-├── LICENSE
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       └── skills/
+│           └── veille-youtube/
+│               ├── SKILL.md
+│               └── evals/
+│                   └── evals.json
 └── README.md
 ```
 
-## Utilisation
-
-Lance avec n'importe quelle formulation :
-
-- "Fais ma veille concurrentielle YouTube"
-- "Qu'est-ce que mes concurrents ont publié cette semaine ?"
-- "Donne-moi des idées de vidéos basées sur la concurrence"
-- "Surveille les tendances de ma niche YouTube"
-
-## Fonctionnement
-
-1. **Onboarding** — Questions sur ta chaîne, niche, segment, concurrents, objectifs, ambitions de format
-2. **Configuration** — Classification automatique des acteurs
-3. **Newsletter** — Recherche + rédaction avec 6 sections structurées
-4. **Feedback** — Collecte tes retours, ajustements automatiques, revue trimestrielle
-
-Fonctionne pour **toutes les niches YouTube** (tech, cuisine, fitness, gaming, etc.).
-
 ## Licence
 
-MIT — utilise, modifie, partage librement.
+MIT
