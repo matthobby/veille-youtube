@@ -58,8 +58,12 @@ C'est LA question la plus importante. Ne te contente pas de "fatbike" ou "tech" 
   - Quels créateurs (dans ta niche ou ailleurs) t'inspirent pour ces formats ?
 
 **5. Livraison**
-- Email pour recevoir la newsletter ?
+- Email pour recevoir la newsletter ? (optionnel — on peut aussi juste générer le fichier)
 - Quel jour de la semaine tu la veux ?
+- **Format préféré** :
+  - **PDF stylé** : rapport professionnel avec mise en page soignée (recommandé)
+  - **Markdown** : fichier .md simple et lisible
+- Tu veux que la newsletter soit générée **automatiquement chaque semaine** ? (on peut aussi configurer ça après la première livraison)
 
 ### Pourquoi ces questions sont critiques
 
@@ -217,12 +221,70 @@ Parcours les commentaires des vidéos récentes des concurrents et relève :
 
 ## Livraison
 
-1. **Génère un fichier Markdown** nommé `veille-{date}.md` et sauvegarde-le dans le dossier de sortie
-2. **Envoie par email** à l'adresse fournie par l'utilisateur avec :
-   - Sujet : `🎯 Veille Concurrentielle [Nom chaîne] — Semaine du {date}`
-   - Corps : contenu en HTML formaté
+### Format de sortie
 
-Demande confirmation avant d'envoyer l'email.
+Lors de l'onboarding (ou dès la première livraison), demande à l'utilisateur son format préféré :
+
+**Option A — PDF stylé** (recommandé) : un rapport professionnel avec mise en page soignée, couleurs, sections visuellement distinctes. Utilise reportlab pour générer le PDF :
+
+```python
+# Dépendances : pip install reportlab --break-system-packages
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.colors import HexColor
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.units import mm
+```
+
+Le PDF doit suivre cette charte :
+- **Couleur principale** : `#1a1a2e` (fond des headers)
+- **Accent** : `#e94560` (titres, highlights)
+- **Accent secondaire** : `#0f3460` (sous-titres)
+- **Succès** : `#2ecc71`, **Warning** : `#f39c12`, **Info** : `#3498db`
+- Police : Helvetica (built-in reportlab)
+- Format A4, marges 20mm
+- Header avec logo/titre + date de la semaine
+- Chaque section numérotée avec sa couleur
+- Les idées de contenu présentées comme des cartes colorées avec priorité
+
+Nomme le fichier : `Veille-[NomChaine]-Semaine-{date}.pdf`
+
+**Option B — Markdown** : un fichier `.md` simple et lisible, nommé `veille-{date}.md`
+
+Dans les deux cas, sauvegarde le fichier dans le dossier de sortie de l'utilisateur (typiquement `mnt/Documents/`). Utilise `present_files` si disponible pour que l'utilisateur puisse l'ouvrir directement, ou fournis un lien `computer://`.
+
+### Email (optionnel)
+
+Si l'utilisateur a fourni un email :
+1. **Envoie par email** avec :
+   - Sujet : `🎯 Veille Concurrentielle [Nom chaîne] — Semaine du {date}`
+   - Corps : version HTML formatée du contenu
+   - Pièce jointe : le PDF si c'est le format choisi
+2. Demande confirmation avant d'envoyer.
+
+### Planification automatique
+
+Après la **première livraison réussie**, propose à l'utilisateur de planifier la newsletter en automatique :
+
+"Ta première newsletter est prête ! Tu veux que je la génère automatiquement chaque semaine ? Je peux créer une tâche planifiée qui se lance tous les [jour choisi lors de l'onboarding] matin."
+
+Si l'utilisateur accepte, demande-lui d'abord **où il veut que le PDF/Markdown soit déposé** :
+- Un dossier spécifique sur son ordinateur (ex: `~/Documents/Veille-YouTube/`)
+- Le bureau (`~/Desktop/`)
+- Le dossier par défaut de Claude (`mnt/Documents/`)
+
+Puis utilise l'outil `create_scheduled_task` :
+- **taskId** : `veille-youtube-[nom-chaine-slugifié]`
+- **description** : `Newsletter hebdo de veille concurrentielle YouTube pour [nom chaîne]`
+- **cronExpression** : adapté au jour choisi (ex: `0 8 * * 1` pour lundi 8h)
+- **prompt** : inclure TOUT le contexte nécessaire pour que la tâche planifiée fonctionne en autonomie :
+  - Le profil créateur complet (chaîne, segment, concurrents, objectifs)
+  - Le format de sortie choisi (PDF ou Markdown)
+  - Le chemin de destination du fichier (ex: "Sauvegarde le PDF dans ~/Documents/Veille-YouTube/")
+  - L'adresse email si envoi souhaité
+  - Les ajustements issus du feedback-log s'il existe
+
+Si l'utilisateur refuse ou veut y réfléchir, pas de souci — rappelle-lui qu'il pourra le demander plus tard.
 
 ---
 
