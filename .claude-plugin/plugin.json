@@ -1,0 +1,11 @@
+{
+  "name": "veille-youtube",
+  "version": "1.0.0",
+  "description": "Newsletter hebdomadaire de veille concurrentielle pour créateurs YouTube. Analyse les concurrents par segment de prix, détecte les tendances, propose des idées de contenu différenciées, et s'améliore via feedback.",
+  "author": {
+    "name": "MattEpicAdventures"
+  },
+  "repository": "https://github.com/matthobby/veille-youtube",
+  "license": "MIT",
+  "keywords": ["youtube", "veille", "concurrentiel", "newsletter", "créateur", "competitor", "intelligence"]
+}
