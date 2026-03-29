@@ -113,6 +113,36 @@ IMPORTANT : classe TOUJOURS les acteurs par leur relation au créateur, pas just
 
 ---
 
+## PHASE 2.5 — CHARGEMENT DES CONNAISSANCES (à chaque exécution)
+
+Avant de lancer les recherches, vérifie s'il existe un fichier `CLAUDE.md` dans le **dossier de sortie** de l'utilisateur (là où les newsletters sont déposées). Ce fichier contient les **connaissances persistantes** accumulées au fil des sessions :
+
+- Profil créateur complet (chaîne, segment, marques, différenciateur)
+- Liste détaillée des concurrents avec scores de menace historiques
+- Tendances marché en cours
+- Voix de l'audience (questions, frustrations, demandes récurrentes)
+- Position stratégique et opportunités identifiées
+- Découvertes récentes à suivre
+
+**Si le fichier existe** : lis-le en entier avec l'outil Read. Utilise ces connaissances comme base pour :
+- **Sauter l'onboarding** (Phase 1) — toutes les infos y sont déjà
+- **Enrichir les recherches** — tu connais déjà les concurrents, leurs angles, leurs scores
+- **Comparer les évolutions** — les scores de menace précédents permettent de calculer la colonne "Évol."
+- **Ne pas répéter les mêmes infos** — si une tendance est déjà documentée, cherche ce qui a changé
+
+**Si le fichier n'existe pas** : passe à l'onboarding classique (Phase 1).
+
+**Mise à jour du CLAUDE.md** : après chaque newsletter, mets à jour le CLAUDE.md avec :
+- Les nouveaux scores de menace (remplace l'historique)
+- Les nouvelles découvertes
+- Les changements de tendances
+- Tout ajout/retrait de concurrent
+- Les nouvelles infos sur les produits/marques
+
+C'est la **mémoire permanente** de la veille. Sans ce fichier, chaque session repart de zéro.
+
+---
+
 ## PHASE 3 — NEWSLETTER HEBDOMADAIRE
 
 ### Recherche
@@ -350,6 +380,38 @@ Le PDF doit suivre cette charte :
 - Header avec logo/titre + date de la semaine
 - Chaque section numérotée avec sa couleur
 - Les idées de contenu présentées comme des cartes colorées avec priorité
+
+**Liens cliquables dans le PDF** — C'est OBLIGATOIRE. Chaque source mentionnée dans la newsletter doit être un lien cliquable :
+- **Vidéos YouTube** des concurrents : lien direct vers la vidéo
+- **Articles** (Cleanrider, Frandroid, etc.) : lien direct vers l'article
+- **Chaînes YouTube** mentionnées : lien vers la chaîne
+- **Produits** : lien vers la page officielle du fabricant ou la page de vente
+- **Résultats de recherche Google Trends** : lien vers la requête si pertinent
+
+Pour rendre les liens cliquables dans reportlab, utilise les balises `<a>` dans les `Paragraph` :
+```python
+from reportlab.platypus import Paragraph
+from reportlab.lib.styles import ParagraphStyle
+
+# Exemple de lien cliquable dans un paragraphe
+text = 'Voir la vidéo : <a href="https://youtube.com/watch?v=XXX" color="#e94560"><u>Titre de la vidéo</u></a>'
+p = Paragraph(text, style)
+
+# Style pour les liens
+link_style = ParagraphStyle(
+    'Link',
+    parent=base_style,
+    textColor=HexColor('#e94560'),
+)
+```
+
+Chaque section de la newsletter doit contenir au minimum :
+- **Activité concurrents** : lien vers chaque vidéo mentionnée
+- **Tendances marché** : lien vers l'article/source de chaque info
+- **Découvertes** : lien vers la chaîne/vidéo/article découvert
+- **Idées de contenu** : si l'idée est inspirée d'une vidéo/article, lien vers la source
+
+Un PDF sans liens cliquables est incomplet. Le créateur doit pouvoir cliquer directement pour aller voir la source.
 
 Nomme le fichier : `Veille-[NomChaine]-Semaine-{date}.pdf`
 
